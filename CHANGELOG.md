@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/sdk-fixture-lab-260904/parcel-events-python/compare/parcel-events-sdk-fixture-260904-v1.2.0...parcel-events-sdk-fixture-260904-v1.3.0) (2026-09-09)
+
+
+### Features
+
+* **python:** regenerate parcel-events-sdk-fixture-260904@1.2.0 (bf47bc76880f) ([042409e](https://github.com/sdk-fixture-lab-260904/parcel-events-python/commit/042409eaf4a0c0a65626584189ed1e5f86bdc19b))
+
 ## [1.2.0](https://github.com/sdk-fixture-lab-260904/parcel-events-python/compare/parcel-events-sdk-fixture-260904-v1.1.0...parcel-events-sdk-fixture-260904-v1.2.0) (2026-09-09)
 
 
