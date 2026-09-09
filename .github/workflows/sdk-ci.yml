@@ -1,0 +1,25 @@
+# managed by Doctorine — edits will be overwritten
+name: Doctorine SDK CI
+on:
+  pull_request: {}
+  push:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out SDK
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Set up uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+        with:
+          version: 0.8.17
+      - name: Reject unresolved merge conflicts
+        shell: bash
+        run: if git grep -n -E '^(<<<<<<< |=======|>>>>>>> )' -- .; then echo 'unresolved merge conflict markers' >&2; exit 1; fi
+      - name: Verify generated SDK
+        shell: bash
+        run: uv sync --all-groups && uv run ruff check . && uv run mypy . && uv run pytest
