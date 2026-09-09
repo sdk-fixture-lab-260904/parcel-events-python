@@ -33,6 +33,22 @@ class WebhookEndpoints(SyncAPIResource):
         adapter: TypeAdapter[models.WebhookEndpoint] = TypeAdapter(models.WebhookEndpoint)
         return adapter.validate_python(response.data, strict=True)
 
+    def get(self, endpoint_id: Annotated[str, BeforeValidator(constraint_validator({"pattern": "^whe_[a-z0-9]{20}$"}))], *, timeout_ms: float | None = None, extra_headers: Mapping[str, str] | None = None, idempotency_key: str | None = None) -> models.WebhookEndpoint:
+        """Retrieve a webhook endpoint
+
+        `GET /v1/webhook-endpoints/{endpoint_id}` (`retrieveWebhookEndpoint`)
+        """
+        TypeAdapter(Annotated[str, BeforeValidator(constraint_validator({"pattern": "^whe_[a-z0-9]{20}$"}))]).validate_python(endpoint_id, strict=True)
+        response = self._request(
+            "GET",
+            "/v1/webhook-endpoints/{endpoint_id}".replace("{endpoint_id}", encode_path_parameter("endpoint_id", to_jsonable(endpoint_id), {"style": "simple", "explode": False, "allowReserved": False})),
+            headers=extra_headers,
+            timeout_ms=timeout_ms,
+            idempotency_key=idempotency_key,
+        )
+        adapter: TypeAdapter[models.WebhookEndpoint] = TypeAdapter(models.WebhookEndpoint)
+        return adapter.validate_python(response.data, strict=True)
+
     def list(self, *, cursor: Annotated[str, BeforeValidator(constraint_validator({"minLength": 1}))] | None = None, limit: Annotated[int, BeforeValidator(constraint_validator({"minimum": 1, "maximum": 100}))] | None = None, timeout_ms: float | None = None, extra_headers: Mapping[str, str] | None = None, idempotency_key: str | None = None) -> SyncPage[models.WebhookEndpoint]:
         """List webhook endpoints
 
@@ -114,6 +130,22 @@ class AsyncWebhookEndpoints(AsyncAPIResource):
             "POST",
             "/v1/webhook-endpoints",
             body=to_jsonable(body),
+            headers=extra_headers,
+            timeout_ms=timeout_ms,
+            idempotency_key=idempotency_key,
+        )
+        adapter: TypeAdapter[models.WebhookEndpoint] = TypeAdapter(models.WebhookEndpoint)
+        return adapter.validate_python(response.data, strict=True)
+
+    async def get(self, endpoint_id: Annotated[str, BeforeValidator(constraint_validator({"pattern": "^whe_[a-z0-9]{20}$"}))], *, timeout_ms: float | None = None, extra_headers: Mapping[str, str] | None = None, idempotency_key: str | None = None) -> models.WebhookEndpoint:
+        """Retrieve a webhook endpoint
+
+        `GET /v1/webhook-endpoints/{endpoint_id}` (`retrieveWebhookEndpoint`)
+        """
+        TypeAdapter(Annotated[str, BeforeValidator(constraint_validator({"pattern": "^whe_[a-z0-9]{20}$"}))]).validate_python(endpoint_id, strict=True)
+        response = await self._request(
+            "GET",
+            "/v1/webhook-endpoints/{endpoint_id}".replace("{endpoint_id}", encode_path_parameter("endpoint_id", to_jsonable(endpoint_id), {"style": "simple", "explode": False, "allowReserved": False})),
             headers=extra_headers,
             timeout_ms=timeout_ms,
             idempotency_key=idempotency_key,

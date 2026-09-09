@@ -112,7 +112,7 @@ class ParcelEventsSdkFixture260904:
             retries=retries if retries is not None else _DEFAULT_RETRIES,
             default_headers=default_headers,
             sdk_name="parcel-events-sdk-fixture-260904",
-            sdk_version="1.1.0+sdk.fcbd1fca862d",
+            sdk_version="1.2.0+sdk.bf47bc76880f",
             idempotency=IdempotencyConfig(header="Idempotency-Key", auto_generate=True),
         )
         self.labels = Labels(self._client)
@@ -167,7 +167,7 @@ class AsyncParcelEventsSdkFixture260904:
             retries=retries if retries is not None else _DEFAULT_RETRIES,
             default_headers=default_headers,
             sdk_name="parcel-events-sdk-fixture-260904",
-            sdk_version="1.1.0+sdk.fcbd1fca862d",
+            sdk_version="1.2.0+sdk.bf47bc76880f",
             idempotency=IdempotencyConfig(header="Idempotency-Key", auto_generate=True),
         )
         self.labels = AsyncLabels(self._client)
