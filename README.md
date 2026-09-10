@@ -71,4 +71,4 @@ client = ParcelEventsSdkFixture260904(retries=RetryPolicy(max_retries=5), timeou
 
 ## Provenance
 
-Reproducible build — see `.doctorine-sdk.json`. `sdkSha b03bcbfcd013ad2db7e91b29f663c445c3ef27568ee3764c242a391ad36c0a09` · `configSha 3b30b7bffa895fb980dad02715f00f4e9bfa44b0a1609697a9abc1366c009a3d` · `bundleSha ee4e0c67f413a3bbf6c37174648831489b9449db1af378e2b81e66e833d86f55`.
+Reproducible build — see `.doctorine-sdk.json`. `sdkSha 45777e0d972538ddeccf8933143238afc33d7ad924e1031486cc6f8aec21c248` · `configSha 3b30b7bffa895fb980dad02715f00f4e9bfa44b0a1609697a9abc1366c009a3d` · `bundleSha ee4e0c67f413a3bbf6c37174648831489b9449db1af378e2b81e66e833d86f55`.
